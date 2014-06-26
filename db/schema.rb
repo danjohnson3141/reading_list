@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515201924) do
+ActiveRecord::Schema.define(version: 20140626170630) do
+
+  create_table "book_club_books", force: true do |t|
+    t.integer "book_id"
+    t.integer "book_club_id"
+  end
+
+  add_index "book_club_books", ["book_club_id"], name: "index_book_club_books_on_book_club_id", using: :btree
+  add_index "book_club_books", ["book_id"], name: "index_book_club_books_on_book_id", using: :btree
+
+  create_table "book_clubs", force: true do |t|
+    t.string "name"
+    t.text   "description"
+  end
 
   create_table "book_genres", force: true do |t|
     t.integer  "book_id"
@@ -20,8 +33,8 @@ ActiveRecord::Schema.define(version: 20140515201924) do
     t.datetime "updated_at"
   end
 
-  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id"
-  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id"
+  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id", using: :btree
+  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id", using: :btree
 
   create_table "books", force: true do |t|
     t.string   "title"

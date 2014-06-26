@@ -1,7 +1,10 @@
 Book.destroy_all
 Genre.destroy_all
+BookClub.destroy_all
 
 fiction = Genre.create!(name: 'Fiction')
+sci_fi = Genre.create!(name: 'Science Fiction')
+fantasy = Genre.create!(name: 'Fantasy')
 apple = Genre.create!(name: 'Apple')
 non_fiction = Genre.create!(name: 'Non-Fiction')
 
@@ -12,7 +15,7 @@ Book.create!([{
   amazon_id: "0553283685",
   rating: 5,
   finished_on: 10.days.ago,
-  genres: [fiction]
+  genres: [fiction, sci_fi]
 },
 {
   title: "Jony Ive: The Genius Behind Apple's Greatest Products",
@@ -31,6 +34,34 @@ Book.create!([{
   rating: 1,
   finished_on: nil,
   genres: [non_fiction]
+},
+{
+  title: "The Gunslinger: The Dark Tower Book 1",
+  author: "Stephen King",
+  description: "In 1978 Stephen King introduced the world to the last Gunslinger, Roland of Gilead.  Nothing has been the same since. Over twenty years later the quest for the Dark Tower continues to take readers on a wildly epic ride. Through parallel worlds and across time, Roland must brave desolate wastelands and endless deserts, drifting into the unimaginable and the familiar as the road to the Dark Tower extends beyond its own pages. A classic tale of colossal scope—crossing over terrain from The Stand, The Eyes of the Dragon, Insomnia, The Talisman, Black House, Hearts in Atlantis, ‘Salem’s Lot and other familiar King haunts—the adventure takes hold with the turn of each page.",
+  amazon_id: "0451210840",
+  rating: 1,
+  finished_on: nil,
+  genres: [fiction, sci_fi, fantasy]
 }])
 
-p "Created #{Book.count} books"
+BookClub.create!([
+  {
+    name: 'Sci-Fi Friends',
+    description: 'The Sci-Fi Friends bookclub likes sci-fi books a lot!!!',
+    books: [Book.find_by(title: "The Gunslinger: The Dark Tower Book 1"), Book.find_by(title: "Hyperion")]
+  },
+  {
+    name: 'Non fiction folks',
+    description: 'We do not like fiction',
+    books: [Book.find_by(title: "Mindstorms"), Book.find_by(title: "Jony Ive: The Genius Behind Apple's Greatest Products"), ]
+  },
+  {
+    name: 'Fantasy Fans',
+    description: 'Pointy hats and robes',
+    books: [Book.find_by(title: "Mindstorms"), Book.find_by(title: "Jony Ive: The Genius Behind Apple's Greatest Products"), ]
+  }
+  ])
+
+p "Created #{Book.count} books..."
+p "Created #{Genre.count} genres..."

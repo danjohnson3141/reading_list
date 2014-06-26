@@ -2,6 +2,8 @@ class Book < ActiveRecord::Base
 
   has_many :book_genres
   has_many :genres, through: :book_genres
+  has_many :book_club_books
+  has_many :book_clubs, through: :book_club_books
 
   scope :finished, ->{ where.not(finished_on: nil) }
   scope :recent, ->{ where('finished_on > ?', 2.days.ago) }
