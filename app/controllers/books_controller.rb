@@ -10,7 +10,6 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1
-  # GET /books/1.json
   def show
   end
 
@@ -41,7 +40,6 @@ class BooksController < ApplicationController
   end
 
   # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
     respond_to do |format|
       if @book.update(book_params)
@@ -55,7 +53,6 @@ class BooksController < ApplicationController
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
     respond_to do |format|
