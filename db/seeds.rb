@@ -40,10 +40,57 @@ Book.create!([{
   author: "Stephen King",
   description: "In 1978 Stephen King introduced the world to the last Gunslinger, Roland of Gilead.  Nothing has been the same since. Over twenty years later the quest for the Dark Tower continues to take readers on a wildly epic ride. Through parallel worlds and across time, Roland must brave desolate wastelands and endless deserts, drifting into the unimaginable and the familiar as the road to the Dark Tower extends beyond its own pages. A classic tale of colossal scope—crossing over terrain from The Stand, The Eyes of the Dragon, Insomnia, The Talisman, Black House, Hearts in Atlantis, ‘Salem’s Lot and other familiar King haunts—the adventure takes hold with the turn of each page.",
   amazon_id: "0451210840",
-  rating: 1,
+  rating: 5,
   finished_on: nil,
   genres: [fiction, sci_fi, fantasy]
-}])
+},
+{
+  title: "The Drawing of the Three: The Dark Tower Book 2",
+  author: "Stephen King",
+  description: "While pursuing his quest for the Dark Tower through a world that is a nightmarishly distorted mirror image of our own, Roland is drawn through a mysterious door that brings him into contemporary America.",
+  amazon_id: "0451210859",
+  rating: 5,
+  finished_on: nil,
+  genres: [fiction, sci_fi, fantasy]
+},
+{
+  title: "The Waste Lands: The Dark Tower Book 3",
+  author: "Stephen King",
+  description: "Roland, The Last Gunslinger, moves ever closer to The Dark Tower of his dreams and nightmares—as he crosses a desert of damnation in a macabre world that is a twisted image of our own. With him are those he has drawn to this world: street-smart Eddie Dean and courageous wheelchair-bound Susannah.",
+  amazon_id: "0451210867",
+  rating: 5,
+  finished_on: nil,
+  genres: [fiction, sci_fi, fantasy]
+},
+{
+  title: "Wizard and Glass: The Dark Tower Book 4",
+  author: "Stephen King",
+  description: "Roland and his band of followers have narrowly escaped one world and slipped into the next. There Roland tells them a tale of long-ago love and adventure involving a beautiful and quixotic woman. And they will be drawn into an ancient mystery of spellbinding magic and supreme menace.",
+  amazon_id: "0451210875",
+  rating: 5,
+  finished_on: nil,
+  genres: [fiction, sci_fi, fantasy]
+},
+# {
+#   title: "The Waste Lands: The Dark Tower Book 3",
+#   author: "Stephen King",
+#   description: "",
+#   amazon_id: "0451210867",
+#   rating: 5,
+#   finished_on: nil,
+#   genres: [fiction, sci_fi, fantasy]
+# },
+# {
+#   title: "The Waste Lands: The Dark Tower Book 3",
+#   author: "Stephen King",
+#   description: "",
+#   amazon_id: "0451210867",
+#   rating: 5,
+#   finished_on: nil,
+#   genres: [fiction, sci_fi, fantasy]
+# }
+
+])
 
 BookClub.create!([
   {
