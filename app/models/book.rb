@@ -5,7 +5,7 @@ class Book < ActiveRecord::Base
   has_many :book_club_books
   has_many :book_clubs, through: :book_club_books
 
-  scope :good, ->(limit=nil){ where("rating > 3").limit(limit) }
+  scope :good, ->(limit=nil){ where("rating > 3").order(rating: :desc).limit(limit) }
   scope :finished, ->{ where.not(finished_on: nil) }
   scope :recent, ->{ where('finished_on > ?', 2.days.ago) }
   scope :search, ->(keyword){ where('keywords LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
@@ -21,6 +21,6 @@ class Book < ActiveRecord::Base
 
   protected
     def set_keywords
-      self.keywords = [title, author, description].map(&:downcase).join(' ')
+      # self.keywords = [title, author, description].map(&:downcase).join(' ')
     end
 end

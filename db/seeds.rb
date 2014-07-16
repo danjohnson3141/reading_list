@@ -1,6 +1,15 @@
+require 'colorize'
+puts "Clearing existing data".green
+BookClubBook.destroy_all
+BookGenre.destroy_all
 Book.destroy_all
 Genre.destroy_all
 BookClub.destroy_all
+
+puts "Reseting auto increment".green
+ActiveRecord::Base.connection.tables.each do |table|
+  ActiveRecord::Base.connection.execute("ALTER TABLE #{table} AUTO_INCREMENT = 1")
+end
 
 fiction = Genre.create!(name: 'Fiction')
 sci_fi = Genre.create!(name: 'Science Fiction')
@@ -99,16 +108,17 @@ BookClub.create!([
     books: [Book.find_by(title: "The Gunslinger: The Dark Tower Book 1"), Book.find_by(title: "Hyperion")]
   },
   {
-    name: 'Non fiction folks',
+    name: 'Non Fiction Folks',
     description: 'We do not like fiction',
     books: [Book.find_by(title: "Mindstorms"), Book.find_by(title: "Jony Ive: The Genius Behind Apple's Greatest Products"), ]
   },
   {
     name: 'Fantasy Fans',
     description: 'Pointy hats and robes',
-    books: [Book.find_by(title: "Mindstorms"), Book.find_by(title: "Jony Ive: The Genius Behind Apple's Greatest Products"), ]
+    books: [Book.find_by(title: "Mindstorms"), Book.find_by(title: "Jony Ive: The Genius Behind Apple's Greatest Products"), Book.find_by(title: "The Gunslinger: The Dark Tower Book 1")]
   }
   ])
 
 p "Created #{Book.count} books..."
 p "Created #{Genre.count} genres..."
+p "Created #{BookClub.count} book clubs..."

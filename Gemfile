@@ -16,6 +16,8 @@ end
 gem 'sass-rails', '~> 4.0.2'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'pry-remote'
+gem 'colorize'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

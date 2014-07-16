@@ -1,11 +1,28 @@
+<style>
+h3 { margin-top: 0; }
+
+.rating { max-width: 97px; font-size: 1.8em; padding-top:8px; }
+.rating-5 .rating { color:#5cb85c; }
+.rating-4 .rating { color:#5cb85c; }
+.rating-3 .rating { color:#f0ad4e; }
+.rating-2 .rating { color:#d9534f; }
+.rating-1 .rating { color:#d9534f; }
+
+.col-sm-8 li { padding-bottom: 1em; }
+
+.book-form {
+  display: none;
+}
+</style>
 <div class="container">
 
   <h1>Reading List</h1>
       <p class="text-right"><a href='/admin' id='admin' class='btn btn-warning'>Admin</a></p>
+      <p class="text-right">username: <mark>admin@example.com</mark><br/>password: <mark>password</mark></p>
 
   <ol class="breadcrumb">
     <li class="active">
-      Books
+      <h3>Books</h3>
     </li>
   </ol>
 
@@ -19,10 +36,10 @@
           </div>
         </form>
       </p>
-      <p class='pull-right'>
+      <p class='text-right'>
         <a href='#' id='show-form' class='btn btn-primary'>New Book Form</a>
       </p>
-      <p class='pull-right'>
+      <p class='text-right'>
         <a href='#' id='book-club' class='btn btn-primary'>Join Book Club</a>
       </p>
       
