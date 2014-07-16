@@ -6,9 +6,11 @@ Book.destroy_all
 Genre.destroy_all
 BookClub.destroy_all
 
-puts "Reseting auto increment".green
-ActiveRecord::Base.connection.tables.each do |table|
-  ActiveRecord::Base.connection.execute("ALTER TABLE #{table} AUTO_INCREMENT = 1")
+if Rails.env != "production"
+  puts "Reseting auto increment".green
+  ActiveRecord::Base.connection.tables.each do |table|
+    ActiveRecord::Base.connection.execute("ALTER TABLE #{table} AUTO_INCREMENT = 1")
+  end
 end
 
 fiction = Genre.create!(name: 'Fiction')
