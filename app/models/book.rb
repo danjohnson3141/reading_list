@@ -21,6 +21,6 @@ class Book < ActiveRecord::Base
 
   protected
     def set_keywords
-      # self.keywords = [title, author, description].map(&:downcase).join(' ')
+      self.keywords = [title, author, description].join(' ')
     end
 end
