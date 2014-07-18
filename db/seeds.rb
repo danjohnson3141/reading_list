@@ -5,6 +5,7 @@ BookGenre.destroy_all
 Book.destroy_all
 Genre.destroy_all
 BookClub.destroy_all
+Author.destroy_all
 
 if Rails.env != "production"
   puts "Reseting auto increment".green
@@ -17,6 +18,7 @@ fiction = Genre.create!(name: 'Fiction')
 sci_fi = Genre.create!(name: 'Science Fiction')
 fantasy = Genre.create!(name: 'Fantasy')
 apple = Genre.create!(name: 'Apple')
+non_fiction = Genre.create!(name: 'Non-Fiction')
 non_fiction = Genre.create!(name: 'Non-Fiction')
 
 Book.create!([{
