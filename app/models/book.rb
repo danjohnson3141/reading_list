@@ -13,6 +13,9 @@ class Book < ActiveRecord::Base
     joins(:genres).where('genres.name = ?', name) if name.present?
   }
 
+  validates :title, presence: true, uniqueness: true
+  validates :author, presence: true
+
   before_save :set_keywords
 
   def finished?
