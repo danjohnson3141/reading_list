@@ -14,6 +14,26 @@ ActiveAdmin.register Book do
    permitted
   end
 
+  config.sort_order = "title_asc"
+  config.batch_actions = true
+  index do
+    selectable_column
+    column :id do |book|
+      link_to book.id, admin_book_path(book)
+    end
+    column :title
+    column :author
+    column :description
+    # column max_width: "200px" do |book|
+    #   book.description
+    # end
+    column :rating
+    column :finished_on
+    column :finished?
+    # column image_from_amazon(:amazon_id)
+    actions
+  end
+
   filter :title
   filter :author
   filter :keywords

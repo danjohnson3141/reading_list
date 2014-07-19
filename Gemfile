@@ -17,7 +17,6 @@ end
 gem 'sass-rails', '~> 4.0.2'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'pry-remote'
 gem 'colorize'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +43,13 @@ group :doc do
 end
 group :production do
   gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Use ActiveModel has_secure_password
