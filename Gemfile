@@ -7,6 +7,7 @@ gem 'rails', '4.0.5'
 # gem 'sqlite3'
 group :development do
   gem 'mysql2'
+  gem 'sqlite3'
 end
 
 group :production, :staging do
