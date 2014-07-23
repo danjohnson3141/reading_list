@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718174728) do
+ActiveRecord::Schema.define(version: 20140716174904) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20140718174728) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,31 +43,16 @@ ActiveRecord::Schema.define(version: 20140718174728) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
-
-  create_table "authors", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "bio"
-    t.date     "dob"
-    t.integer  "created_by"
-    t.integer  "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "authors", ["dob"], name: "index_authors_on_dob", using: :btree
-  add_index "authors", ["first_name"], name: "index_authors_on_first_name", using: :btree
-  add_index "authors", ["last_name"], name: "index_authors_on_last_name", using: :btree
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "book_club_books", force: true do |t|
     t.integer "book_id"
     t.integer "book_club_id"
   end
 
-  add_index "book_club_books", ["book_club_id"], name: "index_book_club_books_on_book_club_id"
-  add_index "book_club_books", ["book_id"], name: "index_book_club_books_on_book_id"
+  add_index "book_club_books", ["book_club_id"], name: "index_book_club_books_on_book_club_id", using: :btree
+  add_index "book_club_books", ["book_id"], name: "index_book_club_books_on_book_id", using: :btree
 
   create_table "book_clubs", force: true do |t|
     t.string "name"
@@ -81,8 +66,8 @@ ActiveRecord::Schema.define(version: 20140718174728) do
     t.datetime "updated_at"
   end
 
-  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id"
-  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id"
+  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id", using: :btree
+  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id", using: :btree
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -94,21 +79,12 @@ ActiveRecord::Schema.define(version: 20140718174728) do
     t.integer  "rating"
     t.date     "finished_on"
     t.text     "keywords"
-    t.integer  "created_by"
-    t.integer  "updated_by"
   end
-
-  add_index "books", ["rating"], name: "index_books_on_rating", using: :btree
-  add_index "books", ["title"], name: "index_books_on_title", using: :btree
 
   create_table "genres", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by"
-    t.integer  "updated_by"
   end
-
-  add_index "genres", ["name"], name: "index_genres_on_name", using: :btree
 
 end
