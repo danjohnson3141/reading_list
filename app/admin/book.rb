@@ -49,7 +49,7 @@ ActiveAdmin.register Book do
     f.inputs "#{resource.class.name} Details" do
       f.input :title
       f.input :author
-      f.input :description
+      f.input :description, as: :html_editor
       f.input :rating, as: :radio, :collection => [[" 5 - Awesome", '5'], [" 4 - Great", "4"], [" 3 - Good", "3"], [" 2 - Bad", "2"], [" 1 - Awful", "1"]]
       f.input :finished_on, as: :date_select
       f.inputs "Cover Art" do
