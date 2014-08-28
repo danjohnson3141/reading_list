@@ -10,7 +10,7 @@ class Book < ActiveRecord::Base
   scope :recent, ->{ where('finished_on > ?', 2.days.ago) }
   scope :search, ->(keyword){ where('keywords LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
   scope :filter, ->(name){
-    joins(:genres).where('genres.name = ?', name) if name.present?
+    joins(:genres).where('genres.name = ?', name) if name.present? && name.downcase != 'all'
   }
 
   validates :title, presence: true, uniqueness: true

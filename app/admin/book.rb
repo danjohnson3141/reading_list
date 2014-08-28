@@ -51,7 +51,7 @@ ActiveAdmin.register Book do
       f.input :author
       f.input :description, as: :html_editor
       f.input :rating, as: :radio, :collection => [[" 5 - Awesome", '5'], [" 4 - Great", "4"], [" 3 - Good", "3"], [" 2 - Bad", "2"], [" 1 - Awful", "1"]]
-      f.input :finished_on, as: :date_select
+      f.input :finished_on, as: :date_picker
       f.inputs "Cover Art" do
         "<br>".html_safe
         image_from_amazon(resource.amazon_id)

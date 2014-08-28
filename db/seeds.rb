@@ -5,7 +5,7 @@ BookGenre.destroy_all
 Book.destroy_all
 Genre.destroy_all
 BookClub.destroy_all
-# Author.destroy_all
+Author.destroy_all
 
 
 # if Rails.env != "production"
@@ -21,6 +21,7 @@ fantasy = Genre.create!(name: 'Fantasy')
 apple = Genre.create!(name: 'Apple')
 non_fiction = Genre.create!(name: 'Non-Fiction')
 non_fiction = Genre.create!(name: 'Non-Fiction')
+Genre.create!(name: 'ALL')
 
 Book.create!([{
   title: "Hyperion",
@@ -94,29 +95,19 @@ Book.create!([{
   finished_on: '1999-06-15',
   genres: [fiction, sci_fi]
 },
-# {
-#   title: "The Waste Lands: The Dark Tower Book 3",
-#   author: "Stephen King",
-#   description: "",
-#   amazon_id: "0451210867",
-#   rating: 5,
-#   finished_on: nil,
-#   genres: [fiction, sci_fi, fantasy]
-# }
+])
 
-# ])
-
-# Author.create!([
-#   { first_name: 'Stephen',
-#     last_name: 'King',
-#     bio: 'Horror writer.',
-#     dob: '1950-01-10'
-#   },
-#   { first_name: 'Arthur C.',
-#     last_name: 'Clark',
-#     bio: 'Clarke was a lifelong proponent of space travel. In 1934 while still a teenager, he joined the British Interplanetary Society. In 1945, he proposed a satellite communication system—an idea that, in 1963, won him the Franklin Institute\'s Stuart Ballantine Medal. Later he was the chairman of the British Interplanetary Society from 1946–47 and again in 1951–53.',
-#     dob: '1917-12-16'
-#   }
+Author.create!([
+  { first_name: 'Stephen',
+    last_name: 'King',
+    bio: 'Horror writer.',
+    dob: '1950-01-10'
+  },
+  { first_name: 'Arthur C.',
+    last_name: 'Clark',
+    bio: 'Clarke was a lifelong proponent of space travel. In 1934 while still a teenager, he joined the British Interplanetary Society. In 1945, he proposed a satellite communication system—an idea that, in 1963, won him the Franklin Institute\'s Stuart Ballantine Medal. Later he was the chairman of the British Interplanetary Society from 1946–47 and again in 1951–53.',
+    dob: '1917-12-16'
+  }
 ])
 
 BookClub.create!([
@@ -140,4 +131,4 @@ BookClub.create!([
 p "Created #{Book.count} books..."
 p "Created #{Genre.count} genres..."
 p "Created #{BookClub.count} book clubs..."
-# p "Created #{Author.count} authors..."
+p "Created #{Author.count} authors..."
