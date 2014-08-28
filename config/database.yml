@@ -1,22 +1,32 @@
 
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: Sandbox
+#   username: root
+#   password: root
+#   host: localhost
+#   port: 8889
+#   reconnect: true
+
 development:
   adapter: mysql2
-  encoding: utf8
+  # encoding: utf8
   database: Sandbox
   username: root
-  password: evanta
-  host: 33.33.33.10
-  port: 3306
+  password: root
+  host: 127.0.0.1
+  port: 8889
   reconnect: true
 
 test:
   adapter: mysql2
-  encoding: utf8
+  # encoding: utf8
   database: Sandbox_Test
   username: root
-  password: evanta
-  host: 33.33.33.10
-  port: 3306
+  password: root
+  host: 127.0.0.1
+  port: 8889
   reconnect: true
 
 

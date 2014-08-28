@@ -13,4 +13,5 @@
  
  *= require bootstrap
  *= require_self
+ //= require active_admin/editor/wysiwyg
  */
